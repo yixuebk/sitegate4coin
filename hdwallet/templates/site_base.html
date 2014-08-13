@@ -1,0 +1,20 @@
+
+{% load i18n %}
+
+{% block nav %}
+    {% if user.is_authenticated %}
+        <ul>{% spaceless %}
+        {% endspaceless %}</ul>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+{% block footer %}
+    {% include "_footer.html" %}
+{% endblock %}
+
+{% block extra_body_base %}
+    {% block extra_body %}{% endblock %}
+{% endblock %}

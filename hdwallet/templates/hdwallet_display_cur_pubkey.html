@@ -1,0 +1,26 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "HD wallet keys" %}{% endblock %}
+
+{% block body %}
+      <h1> HD wallet keys</h1>
+          <ul>
+       <li>MasterExtendedPubKey: {{ ChildKey.masterPubKey }}</li>
+       <br></br>
+       <li>ChildExtendedPubKey: {{ ChildKey.extendedPubKey}}</li>
+       <li>ChildPubKey: {{ ChildKey.PubKey }}  </li>
+       <li>ChildPubKeyIndex: {{ ChildKey.index }}  </li>
+    </ul>
+
+ <p>
+    <a id="edit-pubkey" href="/hdwallet/edithdp/" class="btn">Edit HDWallet Pubkey</a>
+    <a id="create-pubkey-js" href="/hdwallet/newfromjs/" class="btn">New PubKey From JS</a>
+
+ </p>
+
+
+{% endblock %}
+
+

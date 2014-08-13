@@ -1,0 +1,43 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "HD wallet keys" %}{% endblock %}
+
+{% block body %}
+
+  <h2>{{textDict.formtitle}} {% trans " HD Wallet Info " %}  </h2>
+
+   {% if form.errors %}
+        <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
+
+  <form  class="well" action="" method="post">
+  {% csrf_token %}
+  <table>
+  <tr>
+    <td>{{ form.masterExtendedPubKey.errors }} {{ form.masterExtendedPubKey.label_tag }} </td> 
+  </tr>
+
+  <tr>
+    <td> {{ form.masterExtendedPubKey }} </td>
+  </tr>
+
+  <tr>
+    <td>{{ form.bip32Index.errors }} {{ form.bip32Index.label_tag }} {{ form.bip32Index }} </td>
+  </tr>
+  <tr>
+    <td>{{ form.walletAddress.errors }}  {{ form.walletAddress.label_tag }} {{ form.walletAddress }} </td>
+  </tr>
+
+            </table>
+
+        <button type="submit" class="btn">{{textDict.buttontitle}}</button>
+  </form>
+
+
+{% endblock %}
+
+
